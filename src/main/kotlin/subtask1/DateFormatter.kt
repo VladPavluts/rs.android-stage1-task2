@@ -1,14 +1,17 @@
 package subtask1
 
+import java.util.*
 import java.util.Calendar.*
 
 class DateFormatter {
 
     fun toTextDay(day: String, month: String, year: String): String {
+        Locale.setDefault(Locale("RU"))
         val calendar = getInstance()
         calendar.set(YEAR, year.toInt())
         calendar.set(DAY_OF_MONTH, day.toInt())
         calendar.set(MONTH, month.toInt()-1)
+
 
         if(day.toInt()==29 && month.toInt()==2 && year.toInt()% 4!=0)
             return "Такого дня не существует"
