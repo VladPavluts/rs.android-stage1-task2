@@ -10,7 +10,7 @@ class Blocks {
         val listOfKClass=blockA.filter { it::class==blockB }
 
         return when(blockB){
-            String::class -> listOfKClass.joinToString()
+            String::class -> listOfKClass.joinToString("")
             Int::class ->listOfKClass.sumBy { it.toString().toInt() }
             LocalDate::class ->(listOfKClass as List<LocalDate>)
                 .max()?.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) ?: ""
