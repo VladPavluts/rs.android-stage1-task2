@@ -2,8 +2,20 @@ package subtask3
 
 class Abbreviation {
 
-    // TODO: Complete the following function
     fun abbreviationFromA(a: String, b: String): String {
-        throw NotImplementedError("Not implemented")
+        val aUp=a.toUpperCase()
+        var count=0
+        var pos=0
+        for(i in b.withIndex())
+            for (j in aUp.withIndex()){
+                if (i.value==j.value && j.index>=pos){
+                    count++
+                    pos=j.index
+                }
+            }
+        return if(count==b.length)
+            "YES"
+        else
+            "NO"
     }
 }
